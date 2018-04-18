@@ -1,0 +1,10 @@
+good_playlist = sp.user_playlist("1277667115", "1mBtCiX7cs8oLN2vDmzKZs")
+good_tracks = good_playlist["tracks"]
+good_songs = good_tracks["items"] 
+while good_tracks['next']:
+    good_tracks = sp.next(good_tracks)
+    for item in good_tracks["items"]:
+        good_songs.append(item)
+good_ids = [] 
+for i in range(len(good_songs)- 500):
+    good_ids.append(good_songs[i]['track']['id'])
